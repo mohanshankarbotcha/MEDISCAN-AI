@@ -1,26 +1,24 @@
 # Midiscanai — Medical Intelligence Platform
 
-AI-powered medical report analysis built with Next.js, Node.js, and OpenAI GPT-4o.
+AI-powered medical report analysis built with Next.js, Node.js, and OpenRouter (GPT-4o).
 
 ![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white) 
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white) 
 ![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white) 
-![OpenAI GPT-4o](https://img.shields.io/badge/OpenAI_GPT--4o-7C3AED?style=for-the-badge&logo=openai&logoColor=white) 
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white) 
 ![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white) 
-![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white) 
 ![MIT License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
 ## Project Description
 
 Midiscanai is a professional-grade medical intelligence platform designed to bridge the gap between complex clinical reports and patient understanding. By leveraging advanced OCR and AI reasoning, it provides instant, data-driven insights from scanned reports, helping users understand their health metrics in clear, actionable language.
 
-The architecture is built for production environments, featuring a high-performance Next.js 14 frontend and a robust Node.js Express backend. It integrates Tesseract.js for image OCR, pdf-parse for medical documents, and OpenAI GPT-4o for clinical reasoning. Data security is prioritised through HIPAA-compliant PII scrubbing and AES-256 encryption.
+The architecture is built for production environments, featuring a high-performance Next.js 14 frontend and a robust Node.js Express backend. It integrates Tesseract.js for image OCR, pdf-parse for medical documents, and OpenRouter (GPT-4o) for clinical reasoning. Data security is prioritised through HIPAA-compliant PII scrubbing and AES-256 encryption.
 
 ## Features
 
 - ✅ **Secure Uploads**: Support for PNG, JPG, PDF, and TXT medical reports.
-- ✅ **AI Analysis**: Deep clinical insights powered by OpenAI GPT-4o.
+- ✅ **AI Analysis**: Deep clinical insights powered by OpenRouter.
 - ✅ **OCR Engine**: Scanned image text extraction using Tesseract.js & Sharp.
 - ✅ **PDF Extraction**: Multi-page text parsing with pdf-parse.
 - ✅ **HIPAA Compliance**: Automatic PII scrubbing before AI processing.
@@ -38,7 +36,7 @@ The architecture is built for production environments, featuring a high-performa
 |---|---|
 | **Frontend** | Next.js 14 + React + Tailwind CSS + Framer Motion |
 | **Backend** | Node.js + Express.js |
-| **AI Model** | OpenAI GPT-4o via official Node.js SDK |
+| **AI Model** | OpenRouter (GPT-4o/Claude) via OpenAI-compatible SDK |
 | **OCR** | Tesseract.js + Sharp Image Preprocessing |
 | **PDF Parsing** | pdf-parse |
 | **Database** | PostgreSQL + Prisma ORM |
@@ -46,6 +44,29 @@ The architecture is built for production environments, featuring a high-performa
 | **Email** | Nodemailer |
 | **File Upload** | Multer |
 | **Deployment** | Vercel (Frontend) + Railway.app (Backend) |
+
+## System Architecture
+
+```mermaid
+graph TD
+    User([User]) --> Frontend[Next.js Frontend]
+    Frontend --> Backend[Node.js Express Backend]
+    
+    subgraph Processing Layer
+        Backend --> OCR[OCR Engine: Tesseract.js / pdf-parse]
+        Backend --> AI[AI Engine: OpenRouter]
+        OCR --> AI
+    end
+    
+    subgraph Data Layer
+        Backend --> DB[(PostgreSQL/SQLite Database)]
+        Backend --> Storage[Local/Cloud Storage]
+    end
+    
+    AI --> Results[Clinical Insights & Metrics]
+    Results --> Backend
+    Backend --> Frontend
+```
 
 ## Project Structure
 
@@ -107,9 +128,9 @@ The backend handles AI analysis, OCR, and data persistence.
       # macOS/Linux/PowerShell
       cp .env.example .env
       ```
-    - Open `.env` and provide your **OpenAI API Key**:
+    - Open `.env` and provide your **OpenRouter API Key**:
       ```env
-      OPENAI_API_KEY=your_sk_key_here
+      OPENROUTER_API_KEY=your_openrouter_key_here
       ```
     - (Optional) Adjust the `PORT` (default is 5000) or database settings.
 
@@ -191,7 +212,7 @@ Now, open **[http://localhost:3000](http://localhost:3000)** in your browser to 
 
 | Variable | Service | Required | Description |
 |---|---|---|---|
-| `OPENAI_API_KEY` | Backend | Yes | Your OpenAI API key from platform.openai.com/api-keys |
+| `OPENROUTER_API_KEY` | Backend | Yes | Your OpenRouter API key from openrouter.ai |
 | `DATABASE_URL` | Backend | Yes | PostgreSQL/SQLite URL |
 | `SECRET_KEY` | Backend | Yes | JWT Signing Secret |
 | `ENCRYPTION_KEY` | Backend | Yes | AES Encryption Hex Key |
@@ -199,6 +220,6 @@ Now, open **[http://localhost:3000](http://localhost:3000)** in your browser to 
 
 ---
 
-*Designed by Aditya, an area student*  
+*Designed by Aditya Air A Boy *  
 **CREATED BY BMS**  
 Licensed under MIT
