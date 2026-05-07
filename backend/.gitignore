@@ -1,0 +1,34 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment
+.env
+.env.local
+.env.production
+
+# Database
+*.db
+*.db-journal
+prisma/migrations/
+
+# Uploads
+uploads/
+
+# Build
+dist/
+build/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# CONFIRM: No Python files should exist — if any .py files appear here add them
+*.py
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.venv/

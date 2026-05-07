@@ -1,0 +1,98 @@
+================================================================================
+              CITY HEALTH DIAGNOSTIC CENTRE — PATHOLOGY REPORT
+================================================================================
+Report No       : CHD-GLU-2024-007741
+Patient Name    : [REDACTED FOR PRIVACY]
+Age / Gender    : 52 Years / Female
+Physician       : Dr. A. Krishnaswamy, MBBS, MD, DM (Endocrinology)
+Collection Time : 08:15 AM (Fasting — 12 hours confirmed)
+Report Time     : 10:45 AM
+Sample          : Venous Serum
+================================================================================
+
+                    BLOOD GLUCOSE & DIABETES PANEL
+================================================================================
+
+TEST NAME               RESULT          UNIT        REFERENCE RANGE     REMARK
+--------------------------------------------------------------------------------
+Fasting Blood Glucose   148             mg/dL       70 - 99             HIGH ⚠
+Post-Prandial Glucose   287             mg/dL       Below 140           HIGH ⚠
+HbA1c                   9.2             %           Below 5.7           HIGH ⚠
+Fasting Insulin         28.4            µIU/mL      2.0 - 25.0          HIGH ⚠
+HOMA-IR Index           10.4            --          Below 2.0           HIGH ⚠
+Random Blood Glucose    221             mg/dL       Below 200           HIGH ⚠
+
+================================================================================
+                    LIPID PROFILE (Co-requested)
+================================================================================
+
+Total Cholesterol       224             mg/dL       Below 200           HIGH ⚠
+LDL Cholesterol         148             mg/dL       Below 100           HIGH ⚠
+HDL Cholesterol         38              mg/dL       Above 50            LOW ⚠
+Triglycerides           312             mg/dL       Below 150           HIGH ⚠
+VLDL Cholesterol        62              mg/dL       Below 30            HIGH ⚠
+Non-HDL Cholesterol     186             mg/dL       Below 130           HIGH ⚠
+
+================================================================================
+                    KIDNEY FUNCTION (Screening)
+================================================================================
+
+Serum Creatinine        1.18            mg/dL       0.50 - 1.10         HIGH ⚠
+eGFR                    62              mL/min      Above 90            LOW ⚠
+Urine Microalbumin      48              mg/24hr     Below 30            HIGH ⚠
+
+================================================================================
+                    INTERPRETATION AND COMMENTS
+================================================================================
+Results strongly indicate poorly controlled Type 2 Diabetes Mellitus with
+dyslipidemia. HbA1c of 9.2% corresponds to an estimated average glucose of
+approximately 217 mg/dL over the past 3 months indicating sustained hyperglycemia.
+Insulin resistance confirmed by elevated HOMA-IR index of 10.4. Microalbuminuria
+present suggesting early diabetic nephropathy. Immediate physician consultation
+recommended. Pharmacotherapy adjustment and strict dietary control essential.
+
+Risk Assessment: HIGH — Multiple systems affected. Immediate intervention required.
+
+Consultant Pathologist: Dr. M. Venkatesh, MD Pathology, DNB
+NABL Accreditation No: MC-2911 | Report Valid: 30 Days
+================================================================================
+
+CLINICAL SIGNIFICANCE OF FINDINGS:
+HbA1c above 6.5% confirms diagnosis of diabetes mellitus per ADA guidelines.
+Fasting glucose above 126 mg/dL and post-prandial above 200 mg/dL are diagnostic.
+Combined dyslipidemia with elevated triglycerides and low HDL increases CVD risk.
+Early nephropathy indicated by microalbuminuria requires ACE inhibitor therapy.
+Ophthalmology review recommended to screen for diabetic retinopathy annually.
+Foot examination and neuropathy screening recommended at this stage.
+
+================================================================================
+[Padding line 001] All glucose assays performed using hexokinase method.
+[Padding line 002] HbA1c measured by HPLC method — IFCC aligned.
+[Padding line 003] Lipid assays performed using enzymatic colorimetric method.
+[Padding line 004] Sample hemolysis: Nil. Sample lipemia: Mild. Icterus: Nil.
+[Padding line 005] Instrument: Roche COBAS c311 for chemistry panel.
+[Padding line 006] Quality control: Bio-Rad Lyphochek Diabetes control used.
+[Padding line 007] All QC values within 2 SD of target values on test day.
+[Padding line 008] Patient fasting status confirmed by phlebotomist at collection.
+[Padding line 009] Report authorized for release: Dr. M. Venkatesh at 10:43 AM.
+[Padding line 010] City Health Diagnostic Centre — ISO 9001:2015 Certified.
+[Padding line 011] Helpline: 044-XXXXXXXX | Email: reports@cityhealthlab.com
+[Padding line 012] Next recommended tests: Repeat HbA1c in 3 months.
+[Padding line 013] Additional tests to consider: Urine ACR, Serum Uric Acid.
+[Padding line 014] Retinal screening and foot examination recommended.
+[Padding line 015] Patient education on carbohydrate counting recommended.
+[Padding line 016] Glycemic target for this patient: HbA1c below 7.0%.
+[Padding line 017] Blood pressure target: Below 130/80 mmHg for diabetic patient.
+[Padding line 018] Statin therapy likely indicated given LDL above 100 mg/dL.
+[Padding line 019] ACE inhibitor or ARB recommended for microalbuminuria protection.
+[Padding line 020] Follow-up eGFR test in 6 months to monitor kidney function trend.
+[Padding line 021] Dietary referral to registered dietitian strongly recommended.
+[Padding line 022] Regular home blood glucose monitoring 2 times daily advised.
+[Padding line 023] Physical activity goal: 150 minutes moderate exercise per week.
+[Padding line 024] Smoking cessation counselling if applicable to this patient.
+[Padding line 025] Emergency contact: If glucose above 400 mg/dL go to ER immediately.
+[Padding line 026] Thank you for trusting City Health Diagnostic Centre.
+[Padding line 027] Report printed on: 15-Jan-2024. Original report seal below.
+[Padding line 028] For duplicate report request contact front desk with ID proof.
+[Padding line 029] Patient portal login: patient.cityhealthlab.com with report ID.
+[Padding line 030] CITY HEALTH DIAGNOSTIC CENTRE — Accurate Results. Trusted Care.

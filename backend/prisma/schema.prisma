@@ -1,0 +1,83 @@
+// Midiscanai Prisma Schema
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id           Int      @id @default(autoincrement())
+  email        String   @unique
+  passwordHash String   @map("password_hash")
+  fullName     String?  @map("full_name")
+  isVerified   Boolean  @default(false) @map("is_verified")
+  isActive     Boolean  @default(true) @map("is_active")
+  role         String   @default("user")
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+  lastLogin    DateTime? @map("last_login")
+
+  reports    Report[]
+  sessions   Session[]
+  auditLogs  AuditLog[]
+}
+
+model Report {
+  id               Int      @id @default(autoincrement())
+  fileId           String   @unique @map("file_id")
+  userId           Int?     @map("user_id")
+  user             User?    @relation(fields: [userId], references: [id])
+  originalFilename String   @map("original_filename")
+  filePath         String   @map("file_path")
+  fileType         String   @map("file_type")
+  fileSizeKb       Float    @map("file_size_kb")
+  uploadedAt       DateTime @default(now()) @map("uploaded_at")
+  isDeleted        Boolean  @default(false) @map("is_deleted")
+
+  analysisResult AnalysisResult?
+}
+
+model AnalysisResult {
+  id                  Int      @id @default(autoincrement())
+  fileId              String   @unique @map("file_id")
+  reportId            Int      @unique @map("report_id")
+  report              Report   @relation(fields: [reportId], references: [id])
+  detected_condition   String
+  risk_score           Int
+  condition_level      String
+  clinical_explanation String
+  recommended_guidance String
+  estimated_cost       String
+  extracted_metrics    String
+  reasoning           String
+  aiModelUsed         String   @default("gpt-4o") @map("ai_model_used")
+  processingTimeMs    Int?     @map("processing_time_ms")
+  createdAt           DateTime @default(now()) @map("created_at")
+}
+
+model Session {
+  id           Int      @id @default(autoincrement())
+  userId       Int      @map("user_id")
+  user         User     @relation(fields: [userId], references: [id])
+  sessionToken String   @unique @map("session_token")
+  expiresAt    DateTime @map("expires_at")
+  createdAt    DateTime @default(now()) @map("created_at")
+  ipAddress    String?  @map("ip_address")
+  userAgent    String?  @map("user_agent")
+}
+
+model AuditLog {
+  id             Int      @id @default(autoincrement())
+  userId         Int?     @map("user_id")
+  user           User?    @relation(fields: [userId], references: [id])
+  action         String
+  resourceType   String?  @map("resource_type")
+  resourceId     String?  @map("resource_id")
+  ipAddress      String?  @map("ip_address")
+  additionalData String?    @map("additional_data")
+  createdAt      DateTime @default(now()) @map("created_at")
+}

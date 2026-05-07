@@ -1,0 +1,108 @@
+================================================================================
+              GOLDEN PAWS PET SHOP — ANIMAL INVENTORY RECORD
+================================================================================
+Shop Name       : Golden Paws Pet Paradise
+Location        : 14/B, Jubilee Hills, Hyderabad - 500033
+Owner           : Mr. Ravi Kumar
+Contact         : 98XXXXXXXX
+Record Date     : 15-Jan-2024
+================================================================================
+
+                    CURRENT ANIMAL INVENTORY LIST
+================================================================================
+
+ANIMAL          BREED               AGE         COLOR       PRICE (INR)
+--------------------------------------------------------------------------------
+Golden Retriever  American Line     8 weeks     Golden      45,000
+Labrador         Black Lab          10 weeks    Black       32,000
+Pomeranian       German Spitz       6 weeks     White       28,000
+Siberian Husky   Pure Breed         12 weeks    Grey-White  65,000
+German Shepherd  Working Line       9 weeks     Sable       38,000
+Beagle           Tricolor           7 weeks     Tricolor    22,000
+Shih Tzu         Imperial           8 weeks     Brown-White 25,000
+Persian Cat      Doll Face          10 weeks    White       18,000
+Maine Coon       American           12 weeks    Tabby       35,000
+Bengal Cat       Spotted            8 weeks     Golden      42,000
+
+================================================================================
+                    PET FOOD AND SUPPLIES INVENTORY
+================================================================================
+
+PRODUCT NAME                    BRAND       QUANTITY    PRICE/KG
+--------------------------------------------------------------------------------
+Premium Dry Dog Food            Royal Canin     50 bags     INR 800
+Puppy Wet Food Pouches          Pedigree       100 pouches  INR 45
+Cat Whiskas Tuna Flavor         Whiskas         80 pouches  INR 38
+Dog Treats Chicken Strip        Drools          30 bags     INR 250
+Cat Litter Premium Clumping     Catsan          40 packs    INR 320
+
+================================================================================
+                    SHOP SERVICES OFFERED
+================================================================================
+
+1. Dog and cat grooming service — full bath, trim, nail clipping
+2. Veterinary consultation available on Tuesdays and Saturdays
+3. Pet boarding facility for up to 10 dogs simultaneously
+4. Puppy training classes on weekends by certified trainer
+5. Aquarium fish and accessories available in separate section
+6. Bird section with parakeets, cockatiels, and lovebirds
+7. Small pets section with hamsters, guinea pigs, and rabbits
+8. Home delivery of pet food orders above INR 500
+
+================================================================================
+                    RECENT SALES RECORD - JAN 2024
+================================================================================
+
+DATE        ANIMAL          BUYER NAME          SALE PRICE
+------------------------------------------------------------------------
+01-Jan      Golden Retriever  Mr. Sharma        INR 43,000
+03-Jan      Persian Cat       Mrs. Reddy        INR 17,500
+05-Jan      Beagle            Mr. Naidu         INR 21,000
+07-Jan      Pomeranian        Ms. Singh         INR 27,500
+09-Jan      Labrador          Mr. Krishnaswamy  INR 31,000
+11-Jan      Siberian Husky    Mr. Mehta         INR 63,000
+13-Jan      Bengal Cat        Mrs. Iyer         INR 40,000
+15-Jan      German Shepherd   Mr. Rao           INR 37,000
+
+================================================================================
+                    UPCOMING EVENTS
+================================================================================
+
+22-Jan-2024 — Dog Show at Hyderabad Exhibition Grounds (10AM - 5PM)
+28-Jan-2024 — Free Pet Health Camp sponsored by VetCare India
+05-Feb-2024 — Puppy Adoption Drive at GHMC Park, Jubilee Hills
+
+================================================================================
+SHOP TIMING: Monday to Saturday 10AM - 8PM | Sunday 11AM - 6PM
+Golden Paws Pet Paradise — Where Every Animal Finds a Home
+================================================================================
+[Padding line 001] This is a pet shop inventory record not a medical document.
+[Padding line 002] No medical tests, no lab values, no clinical findings here.
+[Padding line 003] This file contains information about dogs, cats, and animals.
+[Padding line 004] Pet shop annual turnover: INR 28,00,000 for FY 2023-24.
+[Padding line 005] Number of animals sold in 2023: 847 animals across all species.
+[Padding line 006] Top selling breed: Golden Retriever — 124 units in 2023.
+[Padding line 007] Staff count: 8 full-time employees and 2 part-time groomers.
+[Padding line 008] Veterinary partner: Dr. Suresh Animal Clinic, Banjara Hills.
+[Padding line 009] All animals vaccinated and dewormed before sale.
+[Padding line 010] Microchipping service available for dogs and cats.
+[Padding line 011] Pet insurance tie-up with Bajaj Allianz available at counter.
+[Padding line 012] GHMC pet shop license number: HYD-PET-2023-4421.
+[Padding line 013] Annual health inspection passed: December 2023.
+[Padding line 014] Fire safety compliance certificate renewed: November 2023.
+[Padding line 015] GST registration number: 36XXXXX1234X1ZX.
+[Padding line 016] Bank account: HDFC Bank, Jubilee Hills branch.
+[Padding line 017] Social media: Instagram @goldenpawspetshop | 12.4K followers.
+[Padding line 018] Google rating: 4.7 stars from 892 customer reviews.
+[Padding line 019] WhatsApp catalog available for new arrivals at 98XXXXXXXX.
+[Padding line 020] Return policy: 7 days for health issues with veterinary certificate.
+[Padding line 021] Delivery radius: 10 km from Jubilee Hills for pet food orders.
+[Padding line 022] Loyalty program: Buy 10 bags of food get 1 free.
+[Padding line 023] Referral program: Refer a friend get INR 500 store credit.
+[Padding line 024] Festival offers available during Diwali, Christmas, and New Year.
+[Padding line 025] Corporate bulk purchase discount available above INR 50,000.
+[Padding line 026] Export inquiries for rare breeds: contact owner directly.
+[Padding line 027] This is definitely not a blood test or medical lab report.
+[Padding line 028] There are no hemoglobin values, no glucose readings, no medical data.
+[Padding line 029] Uploading this file to Midiscanai should trigger rejection message.
+[Padding line 030] GOLDEN PAWS PET PARADISE — Happy Pets, Happy Families.
