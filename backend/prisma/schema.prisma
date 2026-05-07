@@ -53,9 +53,9 @@ model AnalysisResult {
   recommended_guidance String
   estimated_cost       String
   extracted_metrics    String
-  reasoning           String
-  aiModelUsed         String   @default("gpt-4o") @map("ai_model_used")
-  processingTimeMs    Int?     @map("processing_time_ms")
+  detection_reasoning  String   @map("reasoning")
+  ai_model_used        String   @default("gpt-4o") @map("ai_model_used")
+  processing_time_ms   Int?     @map("processing_time_ms")
   createdAt           DateTime @default(now()) @map("created_at")
 }
 

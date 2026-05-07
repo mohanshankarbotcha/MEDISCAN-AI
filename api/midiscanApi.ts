@@ -15,6 +15,7 @@ export interface AnalysisResult {
   detection_reasoning: string;
   report_type?: string;
   processing_time_ms?: number;
+  ai_model_used?: string;
 }
 
 export interface UploadResult {
@@ -60,7 +61,7 @@ export async function analyzeReport(fileId: string): Promise<AnalysisResult> {
   const response = await fetchWithTimeout(
     `${BASE_URL}/api/analyze`,
     { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ fileId }) },
-    90000 // 90 seconds — Claude can be slow
+    90000 // 90 seconds — GPT-4o analysis can take time for large reports
   );
   const data = await response.json();
   if (!response.ok) {

@@ -15,6 +15,7 @@ export interface AnalysisResult {
   detection_reasoning: string;
   report_type?: string;
   processing_time_ms?: number;
+  ai_model_used?: string;
 }
 
 export interface UploadResult {

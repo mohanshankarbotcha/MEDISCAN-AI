@@ -36,9 +36,9 @@ export async function analyzeReport(req, res, next) {
       recommended_guidance: result.recommended_guidance,
       estimated_cost: result.estimated_cost,
       extracted_metrics: JSON.stringify(result.extracted_metrics),
-      reasoning: result.detection_reasoning,
-      aiModelUsed: 'gpt-4o',
-      processingTimeMs: result.processing_time_ms
+      detection_reasoning: result.detection_reasoning,
+      ai_model_used: 'gpt-4o',
+      processing_time_ms: result.processing_time_ms
     });
 
     return res.status(200).json({ success: true, ...result });

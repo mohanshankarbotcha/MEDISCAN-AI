@@ -9,7 +9,7 @@ const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 /**
  * Upload a medical report file to the backend.
  * @param {File} file - The file to upload
- * @returns {Promise<{file_id: string, original_filename: string, file_type: string, file_size_kb: number}>}
+ * @returns {Promise<{fileId: string, originalFilename: string, fileType: string, fileSizeKb: number}>}
  */
 export async function uploadReport(file) {
   const controller = new AbortController();
@@ -44,10 +44,10 @@ export async function uploadReport(file) {
 
 /**
  * Trigger AI analysis for an uploaded report.
- * @param {string} file_id - The file ID returned from upload
+ * @param {string} fileId - The file ID returned from upload
  * @returns {Promise<Object>} - The analysis result
  */
-export async function analyzeReport(file_id) {
+export async function analyzeReport(fileId) {
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 45000); // 45s timeout (AI takes time)
 
@@ -55,7 +55,7 @@ export async function analyzeReport(file_id) {
     const response = await fetch(`${BASE_URL}/api/analyze`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ file_id }),
+      body: JSON.stringify({ fileId }),
       signal: controller.signal,
     });
 
@@ -77,15 +77,15 @@ export async function analyzeReport(file_id) {
 
 /**
  * Fetch previously stored analysis results.
- * @param {string} file_id
+ * @param {string} fileId
  * @returns {Promise<Object>}
  */
-export async function getResults(file_id) {
+export async function getResults(fileId) {
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 10000);
 
   try {
-    const response = await fetch(`${BASE_URL}/api/results/${file_id}`, {
+    const response = await fetch(`${BASE_URL}/api/results/${fileId}`, {
       signal: controller.signal,
     });
 
@@ -107,15 +107,15 @@ export async function getResults(file_id) {
 
 /**
  * Delete a file and its associated records.
- * @param {string} file_id
+ * @param {string} fileId
  * @returns {Promise<Object>}
  */
-export async function deleteFile(file_id) {
+export async function deleteFile(fileId) {
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 10000);
 
   try {
-    const response = await fetch(`${BASE_URL}/api/file/${file_id}`, {
+    const response = await fetch(`${BASE_URL}/api/file/${fileId}`, {
       method: "DELETE",
       signal: controller.signal,
     });
@@ -135,3 +135,4 @@ export async function deleteFile(file_id) {
     clearTimeout(timeout);
   }
 }
+

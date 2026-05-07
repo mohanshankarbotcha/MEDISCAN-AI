@@ -117,7 +117,7 @@ export function UploadSection({ onAnalysisComplete, onError }: UploadSectionProp
 
       // Step 1: Upload
       const uploadResult = await uploadReport(uploadedFile.fileObject)
-      const fileId = uploadResult.file_id
+      const fileId = uploadResult.fileId
 
       // Step 2: Analyze
       setIsUploading(false)
