@@ -26,7 +26,7 @@ export interface UploadResult {
   uploadedAt: string;
 }
 
-const BASE_URL = (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000').replace(/\/$/, '');
+const BASE_URL = (process.env.NEXT_PUBLIC_API_URL || 'https://mediscan-backend-ki6y.onrender.com').replace(/\/$/, '');
 
 async function fetchWithTimeout(url: string, options: RequestInit, timeoutMs: number): Promise<Response> {
   const controller = new AbortController();
@@ -38,9 +38,7 @@ async function fetchWithTimeout(url: string, options: RequestInit, timeoutMs: nu
     if (err.name === 'AbortError') {
       throw new Error('Request timed out. The server is taking too long to respond. Please try again.');
     }
-    if (err.message?.toLowerCase().includes('failed to fetch') || err.message?.toLowerCase().includes('networkerror')) {
-      throw new Error(`Cannot connect to the Midiscanai server at ${BASE_URL}. Make sure the backend is running on port 5000. If using the deployed version, the server may be starting up — please wait 30 seconds and try again.`);
-    }
+      throw new Error(`Cannot connect to the Midiscanai server at ${BASE_URL}. If using the deployed version, the server may be starting up (cold start) — please wait 30 seconds and try again.`);
     throw err;
   } finally {
     clearTimeout(timer);
