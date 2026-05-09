@@ -70,122 +70,38 @@ graph TD
 
 ## Project Structure
 
-```bash
-midiscanai/
-├── app/                  # Next.js App Router (Frontend)
-├── backend/              # Node.js Express Server
-│   ├── prisma/           # Database Schema
-│   └── src/
-│       ├── controllers/  # API Logic
-│       ├── middleware/   # Security & Auth
-│       ├── routes/       # API Endpoints
-│       ├── services/     # AI, OCR, DB Services
-│       └── utils/        # Helpers
-├── public/               # Static Assets
-└── src/
-    └── api/              # Frontend API Client
 ```
+MEDISCAN-AI/
+├── frontend/
+│   ├── src/
+│   ├── public/
+│   ├── package.json
+│   └── vite.config.js  (or next.config.js)
+│
+├── backend/
+│   ├── server.js  (or src/index.js)
+│   ├── routes/
+│   ├── models/
+│   └── package.json
+│
+└── README.md
+```
+
 
 ## Getting Started
 
-Follow these steps to set up and run the complete Midiscanai full-stack application on your local machine.
-
-### 📦 Prerequisites
-
-Ensure you have the following installed before proceeding:
-- **Node.js**: Version 18 or higher ([Download](https://nodejs.org/))
-- **npm**: Version 9 or higher
-- **pnpm**: Recommended for faster and more reliable dependency management
-  ```bash
-  npm install -g pnpm
-  ```
-- **Tesseract OCR**: Required for extracting text from scanned medical reports.
-  - **Windows**: Install from [UB-Mannheim Wiki](https://github.com/UB-Mannheim/tesseract/wiki) and add `C:\Program Files\Tesseract-OCR` to your system **PATH**.
-  - **macOS**: `brew install tesseract`
-  - **Linux**: `sudo apt install tesseract-ocr`
-
----
-
-### 🛠️ Backend Setup (Express)
-
-The backend handles AI analysis, OCR, and data persistence.
-
-1.  **Navigate to the backend directory**:
-    ```bash
-    cd backend
-    ```
-
-2.  **Install dependencies**:
-    ```bash
-    npm install
-    ```
-
-3.  **Configure environment variables**:
-    - Create a `.env` file by copying the template:
-      ```bash
-      # Windows (Command Prompt)
-      copy .env.example .env
-      # macOS/Linux/PowerShell
-      cp .env.example .env
-      ```
-    - Open `.env` and provide your **OpenRouter API Key**:
-      ```env
-      OPENROUTER_API_KEY=your_openrouter_key_here
-      ```
-    - (Optional) Adjust the `PORT` (default is 5000) or database settings.
-
-4.  **Initialize the Database (SQLite)**:
-    - We use Prisma with SQLite for easy local setup (no external DB install required).
-    - Sync the schema and generate the client:
-      ```bash
-      npx prisma migrate dev --name init
-      ```
-
----
-
-### 🌐 Frontend Setup (Next.js)
-
-The frontend is a modern Next.js application.
-
-1.  **Navigate to the root directory**:
-    ```bash
-    cd ..
-    ```
-
-2.  **Install dependencies**:
-    ```bash
-    pnpm install
-    ```
-
-3.  **Configure local environment**:
-    - Create a `.env.local` file in the root directory:
-      ```bash
-      # Windows (PowerShell)
-      echo "NEXT_PUBLIC_API_URL=http://localhost:5000" > .env.local
-      ```
-    - Ensure `NEXT_PUBLIC_API_URL` matches your backend port.
-
----
-
-### 🚀 Running Locally
-
-To run the application, you need to start **both** servers in separate terminal windows.
-
-#### Terminal 1: Backend Server
-```bash
+### Terminal 1 — Start Backend
 cd backend
+npm install
 npm run dev
-```
-*Expected output: `Midiscanai API server running on port 5000`*
 
-#### Terminal 2: Frontend Server
-```bash
-# In the root directory
-npm run dev
-```
-*Expected output: `ready - started server on 0.0.0.0:3000`*
+### Terminal 2 — Start Frontend
+cd frontend
+pnpm install
+pnpm run dev
 
-Now, open **[http://localhost:3000](http://localhost:3000)** in your browser to access the platform.
+### Open in Browser
+http://localhost:3000
 
 ---
 
@@ -220,6 +136,6 @@ Now, open **[http://localhost:3000](http://localhost:3000)** in your browser to 
 
 ---
 
-*Designed by Aditya Air A Boy *  
+*Designed by Aditya Air A Boy * 
 **CREATED BY BMS**  
 Licensed under MIT
