@@ -22,16 +22,16 @@ fs.mkdirSync('./uploads', { recursive: true });
 // Security headers — replaces Python middleware equivalents
 app.use(helmet());
 
-// CORS — allow only the frontend URL
+// CORS — allow all origins for cross-domain communication between Render apps
 app.use(cors({
-  origin: [
-    process.env.FRONTEND_URL || 'http://localhost:3000',
-    'http://localhost:3000',
-    'http://localhost:3001'
-  ],
-  credentials: true,
+  origin: "*",
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
 }));
+
+// Root route for deployment verification
+app.get('/', (req, res) => {
+  res.send('✅ Midiscanai API is online and running on Node.js');
+});
 
 // Request logging
 app.use(morgan('combined'));

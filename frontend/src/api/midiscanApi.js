@@ -4,7 +4,7 @@
 // Frontend API utility for communicating with the FastAPI backend.
 // =============================================================================
 
-const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+const BASE_URL = (process.env.NEXT_PUBLIC_API_URL || 'https://mediscan-backend-ki6y.onrender.com').replace(/\/$/, '');
 
 /**
  * Upload a medical report file to the backend.
