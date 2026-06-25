@@ -68,6 +68,46 @@ graph TD
     Backend --> Frontend
 ```
 
+## Multi-Agent Architecture
+
+Midiscanai uses a Multi-Agent AI system where specialized agents handle
+distinct responsibilities. All agents are coordinated by the Orchestrator.
+
+### Total Agent Count: 7
+
+### Agent Roster
+
+| Agent Name | File | Responsibility |
+|---|---|---|
+| OrchestratorAgent | `backend/src/agents/orchestrator.agent.js` | Central coordinator for the entire AI analysis pipeline, delegating tasks in sequence and collecting results. |
+| ReportProcessingAgent | `backend/src/agents/reportProcessing.agent.js` | Handles file reading, text extraction, report type detection, and basic document validation. |
+| DataPrivacyAgent | `backend/src/agents/dataPrivacy.agent.js` | HIPAA-compliant PII scrubbing before any medical text is sent to an external AI API. |
+| MedicalAnalysisAgent | `backend/src/agents/medicalAnalysis.agent.js` | Calls the AI API (OpenRouter/OpenAI/Claude) and returns raw structured analysis. |
+| RiskAssessmentAgent | `backend/src/agents/riskAssessment.agent.js` | Validates, corrects, and enhances risk scores and ensures condition levels are consistent. |
+| RecommendationAgent | `backend/src/agents/recommendation.agent.js` | Reviews medical analysis and risk results, generating/validating specific guidance and cost. |
+| AuditAgent | `backend/src/agents/audit.agent.js` | Records a detailed non-blocking audit trail for every analysis request to the database. |
+
+### Agent Communication Flow
+
+```
+Controller → OrchestratorAgent → ReportProcessingAgent
+                             → DataPrivacyAgent
+                             → MedicalAnalysisAgent
+                             → RiskAssessmentAgent
+                             → RecommendationAgent
+                             → AuditAgent
+                            ← Collects all results
+Controller ← Final structured result
+```
+
+### Architecture Overview
+
+The Multi-Agent design ensures separation of concerns — each agent has
+one job, making the system easier to debug, test, and extend. The
+Orchestrator coordinates all agents and is the only entry point from
+the Express controller. No agent calls another agent directly except
+through the Orchestrator's context object.
+
 ## Project Structure
 
 ```

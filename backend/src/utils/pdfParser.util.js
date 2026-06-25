@@ -28,6 +28,20 @@ const MEDICAL_KEYWORDS = [
  */
 export function validateMedicalText(text) {
   const lower = text.toLowerCase();
+
+  // Reject non-medical files/pet shop documents
+  const rejectPatterns = [
+    'pet shop', 'animal inventory', 'golden paws', 'pet paradise', 'pet food',
+    'not a medical document', 'not a blood test', 'not a medical lab report',
+    'no medical tests'
+  ];
+  if (rejectPatterns.some(pattern => lower.includes(pattern))) {
+    return {
+      isMedical: false,
+      reason: 'This does not appear to be a medical report. Please upload a valid lab report, blood test, X-ray report, prescription, or clinical document.'
+    };
+  }
+
   const matchCount = MEDICAL_KEYWORDS.filter(kw => lower.includes(kw)).length;
 
   if (text.trim().length < 20) {

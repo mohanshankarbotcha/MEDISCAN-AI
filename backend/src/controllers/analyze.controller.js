@@ -4,7 +4,7 @@
  */
 
 import fs from 'node:fs';
-import { runAnalysis } from '../services/aiAgent.service.js';
+import { runAnalysis } from '../agents/orchestrator.agent.js';
 import { ReportService, AnalysisService } from '../services/database.service.js';
 
 export async function analyzeReport(req, res, next) {
@@ -24,7 +24,7 @@ export async function analyzeReport(req, res, next) {
       return res.status(404).json({ error: 'File missing', message: 'The uploaded file is no longer on the server. Please upload again.' });
     }
 
-    const result = await runAnalysis(uploadRecord.filePath, uploadRecord.fileType);
+    const result = await runAnalysis(uploadRecord.filePath, uploadRecord.fileType, fileId);
 
     await AnalysisService.saveAnalysisResult({
       fileId,
