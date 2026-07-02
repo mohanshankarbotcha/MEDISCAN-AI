@@ -51,7 +51,7 @@ export async function uploadReport(file: File): Promise<UploadResult> {
   // DO NOT set Content-Type header — browser sets it automatically for FormData
   const response = await fetchWithTimeout(`${BASE_URL}/api/upload`, { method: 'POST', body: formData }, 20000);
   const data = await response.json();
-  if (!response.ok) throw new Error(data.message || 'Upload failed');
+  if (!response.ok) throw new Error(data.error || data.message || 'Upload failed');
   return data as UploadResult;
 }
 

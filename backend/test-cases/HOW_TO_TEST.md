@@ -109,7 +109,7 @@ Make sure both servers are running:
 
 **Test 1 or 2 fail with "Analysis Could Not Be Completed":**
 - Check backend terminal for error logs
-- Confirm OPENROUTER_API_KEY or OPENAI_API_KEY is correctly set in backend/.env
+- Confirm GOOGLE_API_KEY is correctly set in backend/.env
 - Confirm the AI API key has sufficient credits
 
 **Test 1 or 2 show "Not determined" in Estimated Cost:**

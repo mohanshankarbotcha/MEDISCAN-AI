@@ -28,7 +28,7 @@ export async function uploadReport(file) {
 
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({}));
-      throw new Error(errorData.detail || errorData.message || `Upload failed (${response.status})`);
+      throw new Error(errorData.detail || errorData.error || errorData.message || `Upload failed (${response.status})`);
     }
 
     return await response.json();

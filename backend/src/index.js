@@ -12,6 +12,7 @@ import fs from 'node:fs';
 import uploadRoutes from './routes/upload.routes.js';
 import analyzeRoutes from './routes/analyze.routes.js';
 import authRoutes from './routes/auth.routes.js';
+import { validateApiKey } from './services/gemini.service.js';
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -65,6 +66,17 @@ app.use((err, req, res, next) => {
     code: err.code || 'INTERNAL_ERROR'
   });
 });
+
+console.log('');
+console.log('╔════════════════════════════════════════╗');
+console.log('║     MIDISCANAI AI PROVIDER CHECK       ║');
+console.log('╠════════════════════════════════════════╣');
+console.log('║  Provider : Google Gemini API          ║');
+console.log(`║  Model    : ${process.env.GEMINI_MODEL || 'gemini-2.5-flash'}              ║`);
+const keyValid = validateApiKey();
+console.log(`║  API Key  : ${keyValid ? '✓ Configured' : '✗ MISSING — Add to .env'}    ║`);
+console.log('╚════════════════════════════════════════╝');
+console.log('');
 
 app.listen(PORT, () => {
   console.log(`✅ Midiscanai API running on port ${PORT}`);

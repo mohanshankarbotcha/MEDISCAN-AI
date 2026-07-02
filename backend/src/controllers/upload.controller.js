@@ -14,9 +14,11 @@ export const uploadFile = asyncWrapper(async (req, res, next) => {
 
   const { size, originalname, path: filePath, mimetype } = req.file;
 
-  if (size < 10240) { // 10KB
+  const minSizeKb = parseInt(process.env.MIN_FILE_SIZE_KB, 10) || 1;
+  const minSize = minSizeKb * 1024;
+  if (size < minSize) {
     if (fs.existsSync(filePath)) fs.unlinkSync(filePath);
-    throw new AppError('File is too small — minimum size is 10KB', 400);
+    throw new AppError(`File is too small — minimum size is ${minSizeKb}KB`, 400);
   }
 
   const fileId = uuidv4();

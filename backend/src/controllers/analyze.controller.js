@@ -37,7 +37,7 @@ export async function analyzeReport(req, res, next) {
       estimated_cost: result.estimated_cost,
       extracted_metrics: JSON.stringify(result.extracted_metrics),
       detection_reasoning: result.detection_reasoning,
-      ai_model_used: 'gpt-4o',
+      ai_model_used: process.env.GEMINI_MODEL || 'gemini-2.5-flash',
       processing_time_ms: result.processing_time_ms
     });
 
@@ -54,52 +54,51 @@ export async function analyzeReport(req, res, next) {
       });
     }
     if (msg.startsWith('UNSUPPORTED_TYPE:')) {
-      return res.status(415).json({
-        error: 'Unsupported file type',
-        message: msg.replace('UNSUPPORTED_TYPE:', '').trim(),
-        code: 'UNSUPPORTED_TYPE'
-      });
+      return res.status(415).json({ error: 'Unsupported file type', message: msg.replace('UNSUPPORTED_TYPE:', '').trim(), code: 'UNSUPPORTED_TYPE' });
     }
     if (msg.startsWith('PDF_EMPTY:') || msg.startsWith('TXT_EMPTY:')) {
-      return res.status(422).json({
-        error: 'Empty or unreadable file',
-        message: msg.split(':').slice(1).join(':').trim(),
-        code: 'EMPTY_FILE'
-      });
+      return res.status(422).json({ error: 'Empty or unreadable file', message: msg.split(':').slice(1).join(':').trim(), code: 'EMPTY_FILE' });
     }
-    if (msg.startsWith('OPENAI_PARSE_FAILED:')) {
-      return res.status(503).json({
-        error: 'AI analysis temporarily unavailable',
-        message: 'OpenAI could not process your report right now. Please try again in a few seconds.',
-        code: 'AI_PARSE_ERROR'
-      });
-    }
-    if (msg.startsWith('OPENAI_AUTH_ERROR:')) {
+    if (msg.startsWith('GEMINI_AUTH_ERROR:')) {
       return res.status(500).json({
         error: 'AI configuration error',
-        message: 'The AI service is not properly configured. Please contact support.',
+        message: 'Google Gemini API key is invalid or not configured. Please check the server configuration.',
         code: 'AI_CONFIG_ERROR'
       });
     }
-    if (msg.startsWith('OPENAI_RATE_LIMIT:')) {
+    if (msg.startsWith('GEMINI_QUOTA_EXCEEDED:')) {
       return res.status(429).json({
-        error: 'Too many requests',
-        message: 'The AI service is busy. Please wait a few seconds and try again.',
-        code: 'AI_RATE_LIMIT'
+        error: 'AI quota exceeded',
+        message: 'Google Gemini API usage limit reached. Please try again later or upgrade your Google AI plan.',
+        code: 'AI_QUOTA_EXCEEDED'
       });
     }
-    if (msg.startsWith('OPENAI_UNAVAILABLE:')) {
+    if (msg.startsWith('GEMINI_SAFETY_BLOCK:')) {
+      return res.status(422).json({
+        error: 'Content safety filter triggered',
+        message: 'The uploaded report was flagged by the AI safety system. Please ensure the document is a standard medical report.',
+        code: 'SAFETY_BLOCK'
+      });
+    }
+    if (msg.startsWith('GEMINI_FAILED:') || msg.startsWith('GEMINI_PARSE_FAILED:')) {
       return res.status(503).json({
-        error: 'AI service unavailable',
-        message: 'OpenAI is temporarily unavailable. Please try again shortly.',
+        error: 'AI analysis temporarily unavailable',
+        message: 'Google Gemini could not process your report right now. Please try again in a few seconds.',
         code: 'AI_UNAVAILABLE'
       });
     }
+    if (msg.startsWith('ORCHESTRATOR_ERROR:') || msg.startsWith('ANALYSIS_PIPELINE_ERROR:')) {
+      return res.status(500).json({
+        error: 'Analysis pipeline error',
+        message: 'An error occurred in the analysis pipeline. Please try again.',
+        code: 'PIPELINE_ERROR'
+      });
+    }
 
-    console.error('[Analyze Controller]', err.stack);
+    console.error('[Analyze Controller] Unhandled error:', err.stack);
     return res.status(500).json({
       error: 'Analysis failed',
-      message: 'An unexpected error occurred during analysis. Please try again.',
+      message: 'An unexpected error occurred. Please try again.',
       code: 'INTERNAL_ERROR'
     });
   }
