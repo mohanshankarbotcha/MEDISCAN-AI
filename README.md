@@ -15,6 +15,12 @@ Midiscanai is a professional-grade medical intelligence platform designed to bri
 
 The architecture is built for production environments, featuring a high-performance Next.js 14 frontend and a robust Node.js Express backend. It integrates Tesseract.js for image OCR, pdf-parse for medical documents, and Google Gemini (gemini-2.5-flash) for clinical reasoning. Data security is prioritised through HIPAA-compliant PII scrubbing and AES-256 encryption.
 
+### 🚀 Recent Updates
+
+- **Google Gemini API Integration**: Transitioned the core AI reasoning and analysis pipeline from OpenRouter/OpenAI to the official **Google Gemini API** (`gemini-2.5-flash`) using the `@google/generative-ai` SDK.
+- **Robust Error Handling**: Implemented custom error categorization (such as `GEMINI_AUTH_ERROR` and `GEMINI_QUOTA_EXCEEDED`) and self-healing JSON correction.
+- **Upgraded Config & Testing Docs**: Refactored the environment configuration structure to use `GOOGLE_API_KEY` and updated the local test runner guides ([HOW_TO_TEST.md](file:///c:/Users/user/OneDrive/Desktop/MEDI-SCAN_AI/backend/test-cases/HOW_TO_TEST.md)).
+
 ## Features
 
 - ✅ **Secure Uploads**: Support for PNG, JPG, PDF, and TXT medical reports.
